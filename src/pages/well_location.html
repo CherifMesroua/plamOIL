@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensure flame-icon.svg is in your public folder, or update path -->
+    <link rel="icon" type="image/svg+xml" href="/flame-icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well Location - Petroleum Palm</title>
+    <!-- Common styles -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="../style/well_location.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="dashboard-container">
+        <aside class="sidebar" id="sidebar"> <!-- Added id="sidebar" for consistency if JS targets it -->
+            <div class="sidebar-header">
+                <span class="logo-icon">🔥</span>
+                <h1>Petroleum Palm</h1>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav"> <!-- Added id="sidebarNav" for consistency -->
+                <ul>
+                    <li>
+                        <a href="../../index.html" class="sidebar-link">
+                            <span class="icon">W</span> Well Name <span class="star">★</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="well_location.html" class="sidebar-link">
+                            <span class="icon">📍</span> Well Location
+                        </a>
+                    </li>
+                    <li>
+                        <!-- Assuming equipment_info.html will be in src/pages/ -->
+                        <a href="equipment_info.html" class="sidebar-link">
+                            <span class="icon">📄</span> Equipment Info
+                        </a>
+                    </li>
+                    <li>
+                        <!-- Assuming drilling_history.html will be in src/pages/ -->
+                        <a href="drilling_history.html" class="sidebar-link">
+                            <span class="icon">📊</span> Drilling History
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-group-title">GENERAL INFO</div>
+                <ul>
+                     <li><a href="#" class="sidebar-link"><span class="icon">⚪</span> PoullNem Well</a></li>
+                </ul>
+                <div class="nav-group-title">TECHNICAL MONITORING</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon">🕒</span> Previous Operations</a></li>
+                    <li><a href="#" class="sidebar-link"><span class="icon">📰</span> Daily Reports</a></li>
+                </ul>
+                <div class="nav-group-title">RECORDS</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon-text">+</span> Add New Well</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="icon-button menu-button" id="menuButton">☰</button> <!-- Added id="menuButton" for JS -->
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="search" placeholder="Search">
+                    </div>
+                     <!-- Upload button can also be here if needed on all pages -->
+                </div>
+                <div class="header-right">
+                    <span class="language-selector">EN</span>
+                    <button class="icon-button">💾</button>
+                    <button class="icon-button">🔔</button>
+                    <button class="icon-button">⋮</button>
+                </div>
+            </header>
+
+            <section class="page-content">
+                <div class="page-header">
+                    <h2>Well Location Details</h2>
+                </div>
+
+                <div class="location-details-grid">
+                    <div class="card location-map-card">
+                        <div class="card-header">Interactive Map</div>
+                        <div class="card-body">
+                            <div class="map-placeholder">
+                                <img src="https://via.placeholder.com/600x400.png?text=Map+of+Somewhere+Field" alt="Map Placeholder">
+                                <span>📍 Somewhere Field</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card location-info-card">
+                        <div class="card-header">Location Information</div>
+                        <div class="card-body">
+                            <ul class="info-list">
+                                <li><strong>Field Name:</strong> Somewhere Field</li>
+                                <li><strong>Lease Name:</strong> Alpha-7 Lease</li>
+                                <li><strong>Coordinates:</strong> 34.0522° N, 118.2437° W (Example)</li>
+                                <li><strong>Country:</strong> United States (Example)</li>
+                                <li><strong>Region/State:</strong> California (Example)</li>
+                                <li><strong>Datum:</strong> WGS84</li>
+                                <li><strong>Surface Elevation:</strong> 1250 ft</li>
+                                <li><strong>Water Depth (if offshore):</strong> N/A</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card location-notes-card">
+                        <div class="card-header">Notes & Access Information</div>
+                        <div class="card-body">
+                            <p>
+                                Access to the well site is via County Road 12, then 2 miles on unpaved lease road.
+                                Gate key required (Keybox code: 1234).
+                            </p>
+                            <p>
+                                Nearest town: Oilville, 15 miles East.
+                                Emergency contact: Site Supervisor - John Doe (555-123-4567).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Removed external xlsx script, assuming if needed, it's handled by main.js or page-specific JS -->
+    <script type="module" src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensure flame-icon.svg is in your public folder, or update path -->
+    <link rel="icon" type="image/svg+xml" href="/flame-icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drilling History - Petroleum Palm</title>
+    <!-- Common styles -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Page-specific styles (optional, create if needed: src/style/drilling_history.css) -->
+    <!-- <link rel="stylesheet" href="../style/drilling_history.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">🔥</span>
+                <h1>Petroleum Palm</h1>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav">
+                <ul>
+                    <li>
+                        <a href="../../index.html" class="sidebar-link">
+                            <span class="icon">W</span> Well Name <span class="star">★</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="well_location.html" class="sidebar-link">
+                            <span class="icon">📍</span> Well Location
+                        </a>
+                    </li>
+                    <li>
+                        <a href="equipment_info.html" class="sidebar-link">
+                            <span class="icon">📄</span> Equipment Info
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="drilling_history.html" class="sidebar-link">
+                            <span class="icon">📊</span> Drilling History
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-group-title">GENERAL INFO</div>
+                <ul>
+                     <li><a href="#" class="sidebar-link"><span class="icon">⚪</span> PoullNem Well</a></li>
+                </ul>
+                <div class="nav-group-title">TECHNICAL MONITORING</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon">🕒</span> Previous Operations</a></li>
+                    <li><a href="#" class="sidebar-link"><span class="icon">📰</span> Daily Reports</a></li>
+                </ul>
+                <div class="nav-group-title">RECORDS</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon-text">+</span> Add New Well</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="icon-button menu-button" id="menuButton">☰</button>
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="search" placeholder="Search">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <span class="language-selector">EN</span>
+                    <button class="icon-button">💾</button>
+                    <button class="icon-button">🔔</button>
+                    <button class="icon-button">⋮</button>
+                </div>
+            </header>
+
+            <section class="page-content">
+                <div class="page-header">
+                    <h2>Well Drilling History</h2>
+                </div>
+
+                <div class="drilling-history-grid">
+                    <div class="card drilling-summary-card">
+                        <div class="card-header">Key Drilling Dates & Depths</div>
+                        <div class="card-body">
+                            <ul class="info-list">
+                                <li><strong>Spud Date:</strong> 2022-06-01</li>
+                                <li><strong>Rig Release Date:</strong> 2022-07-15</li>
+                                <li><strong>Total Days Drilling:</strong> 45 days</li>
+                                <li><strong>Planned Total Depth (MD):</strong> 10,500 ft</li>
+                                <li><strong>Actual Total Depth (MD):</strong> 10,525 ft</li>
+                                <li><strong>Planned Total Depth (TVD):</strong> 9,980 ft</li>
+                                <li><strong>Actual Total Depth (TVD):</strong> 10,002 ft</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card drilling-timeline-card">
+                        <div class="card-header">Drilling Phases & Events Timeline</div>
+                        <div class="card-body">
+                            <ul class="timeline-list">
+                                <li>
+                                    <span class="timeline-date">2022-06-01</span>
+                                    <span class="timeline-event">Spud Well - Drilled 26" hole to 500 ft.</span>
+                                </li>
+                                <li>
+                                    <span class="timeline-date">2022-06-03</span>
+                                    <span class="timeline-event">Ran & cemented 20" conductor casing at 490 ft. WOC.</span>
+                                </li>
+                                <li>
+                                    <span class="timeline-date">2022-06-05</span>
+                                    <span class="timeline-event">Drilled 17-1/2" hole to 3,500 ft. Encountered minor gas kick.</span>
+                                </li>
+                                <li>
+                                    <span class="timeline-date">2022-06-12</span>
+                                    <span class="timeline-event">Ran & cemented 13-3/8" surface casing at 3,480 ft. WOC. BOP Test.</span>
+                                </li>
+                                 <li>
+                                    <span class="timeline-date">2022-06-15</span>
+                                    <span class="timeline-event">Drilled 12-1/4" hole to 8,000 ft. Changed BHA.</span>
+                                </li>
+                                 <li>
+                                    <span class="timeline-date">2022-06-25</span>
+                                    <span class="timeline-event">Ran & cemented 9-5/8" intermediate casing at 7,950 ft. WOC.</span>
+                                </li>
+                                 <li>
+                                    <span class="timeline-date">2022-06-28</span>
+                                    <span class="timeline-event">Drilled 8-1/2" hole to TD at 10,525 ft. Logging operations.</span>
+                                </li>
+                                <li>
+                                    <span class="timeline-date">2022-07-05</span>
+                                    <span class="timeline-event">Ran & cemented 7" production liner from 7,500 ft to 10,520 ft.</span>
+                                </li>
+                                <li>
+                                    <span class="timeline-date">2022-07-15</span>
+                                    <span class="timeline-event">Rig Released. Well ready for completion.</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="view-more-link">View Full Drilling Report...</a>
+                        </div>
+                    </div>
+
+                     <div class="card drilling-problems-card">
+                        <div class="card-header">Drilling Problems & NPT</div>
+                        <div class="card-body">
+                            <ul class="info-list">
+                                <li><strong>Lost Circulation:</strong> Minor losses in 17-1/2" section. (6 hrs NPT)</li>
+                                <li><strong>Stuck Pipe:</strong> No major stuck pipe incidents.</li>
+                                <li><strong>Equipment Failure:</strong> MWD tool failure. (12 hrs NPT)</li>
+                                <li><strong>Well Control:</strong> Minor gas kick, handled per procedure. (4 hrs NPT)</li>
+                                <li><strong>Total NPT:</strong> 22 hours</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card casing-info-card">
+                        <div class="card-header">Casing Summary</div>
+                        <div class="card-body">
+                            <table class="casing-table">
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Weight (lb/ft)</th>
+                                        <th>Grade</th>
+                                        <th>Setting Depth (MD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>20"</td>
+                                        <td>94</td>
+                                        <td>H-40</td>
+                                        <td>490 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13-3/8"</td>
+                                        <td>68</td>
+                                        <td>K-55</td>
+                                        <td>3,480 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9-5/8"</td>
+                                        <td>47</td>
+                                        <td>L-80</td>
+                                        <td>7,950 ft</td>
+                                    </tr>
+                                     <tr>
+                                        <td>7" Liner</td>
+                                        <td>29</td>
+                                        <td>P-110</td>
+                                        <td>10,520 ft</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="../main.js"></script>
+</body>
+</html>

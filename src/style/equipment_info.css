@@ -1,0 +1,92 @@
+/* Add to src/style.css or src/style/equipment_info.css */
+
+.equipment-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+/* If you want the schematic card to potentially span more or have a fixed aspect */
+.equipment-schematic-card .card-body {
+    padding: 0; /* Remove card padding if map needs to fill it */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schematic-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px; /* Ensure schematic card has some height */
+    background-color: #333942; /* Darker background for schematic area */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    border-radius: 0 0 8px 8px; /* Match card bottom radius */
+    padding: 15px;
+    box-sizing: border-box;
+}
+.schematic-placeholder img {
+    max-width: 100%;
+    max-height: calc(100% - 40px); /* Leave space for text below */
+    object-fit: contain; /* Use contain for schematics */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.view-schematic-link, .view-more-link {
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    text-decoration: none;
+    margin-top: auto; /* Pushes link to bottom if in flex container */
+    display: inline-block;
+}
+.view-schematic-link:hover, .view-more-link:hover {
+    text-decoration: underline;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.history-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border-color); /* Dashed for history items */
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+.history-list li:last-child {
+    border-bottom: none;
+}
+.history-list li strong {
+    color: var(--text-primary);
+    margin-right: 5px;
+}
+
+/* Shared .info-list styles (if not already general enough in style.css) */
+.info-list { /* This was also used in well_location.html */
+    list-style: none;
+    padding: 0;
+}
+.info-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.info-list li:last-child {
+    border-bottom: none;
+}
+.info-list li strong {
+    color: var(--text-primary);
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent strong tag from shrinking */
+}
+.info-list li span:last-child { /* The value part */
+    text-align: right;
+    color: var(--text-secondary);
+}

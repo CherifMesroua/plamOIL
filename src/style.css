@@ -1,0 +1,744 @@
+:root {
+    --bg-dark: #1A1E25;
+    --bg-card: #2C313A; /* Slightly lighter than main bg */
+    --text-primary: #E0E0E0;
+    --text-secondary: #A0AEC0; /* For less important text */
+    --text-header: #FFFFFF;
+    --accent-red: #E94E77;
+    --accent-blue: #4A90E2;
+    --accent-yellow: #FFD700; /* Gold for the star */
+    --border-color: #3A414D;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* So the dashboard doesn't touch screen edges */
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px; /* Max width of the dashboard */
+    height: 90vh; /* Approximate height from image */
+    max-height: 800px;
+    background-color: var(--bg-dark); /* Main background for dashboard area */
+    border-radius: 8px;
+    overflow: hidden; /* Important for rounded corners on children */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--bg-card); /* Sidebar has a slightly different bg in image */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header .logo-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: var(--accent-yellow); /* Flame icon color */
+}
+
+.sidebar-header h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-header);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav li {
+    padding: 10px 12px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.sidebar-nav li.active {
+    background-color: rgba(74, 144, 226, 0.2); /* Light blue highlight */
+    color: var(--text-primary);
+    font-weight: 500;
+}
+.sidebar-nav li.active .star {
+    color: var(--accent-yellow);
+    margin-left: auto;
+}
+
+.sidebar-nav .icon {
+    margin-right: 12px;
+    width: 20px; /* For alignment */
+    text-align: center;
+    font-weight: bold; /* Make W, etc. bold */
+}
+.sidebar-nav .icon-text {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.sidebar {
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    transform: translateX(0);
+    opacity: 1;
+}
+.sidebar.sidebar-hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+/* src/style.css */
+/* ... other styles ... */
+
+.sidebar-link {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent li */
+    display: flex; /* To align icon and text */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px 12px; /* Replicates padding previously on li */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+/* Remove padding from li if a.sidebar-link handles it */
+.sidebar-nav li {
+    padding: 0; /* Let the <a> tag handle padding */
+    margin-bottom: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    /* display: flex; align-items: center; -- No longer needed here if <a> handles it */
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.sidebar-nav li:hover .sidebar-link { /* Adjust hover color on the link */
+    color: var(--text-primary);
+}
+
+.sidebar-nav li.active {
+    background-color: rgba(74, 144, 226, 0.2);
+}
+.sidebar-nav li.active .sidebar-link {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Ensure icons and star still align within the link */
+.sidebar-link .icon {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.sidebar-link .icon-text {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.sidebar-link .star {
+    margin-left: auto;
+}
+
+.nav-group-title {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    font-weight: 500;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto; /* If content overflows */
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button[for="excelUpload"] {
+    margin-left: 16px;
+}
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem; /* Adjust as needed for icons */
+    cursor: pointer;
+    padding: 5px;
+}
+.icon-button:hover {
+    color: var(--text-primary);
+}
+.menu-button {
+    font-size: 1.5rem; /* Hamburger is usually larger */
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.search-bar .search-icon {
+    margin-right: 8px;
+    color: var(--text-secondary);
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    outline: none;
+    font-size: 0.9rem;
+}
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+.language-selector {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 5px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 18px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-output .value, .card-pressure-main .value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-header);
+    margin-right: 8px;
+}
+.card-output .unit, .card-pressure-main .unit {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+.card-output .card-body, .card-pressure-main .card-body {
+    display: flex;
+    align-items: baseline; /* Align value and unit nicely */
+    position: relative; /* For mini-chart positioning */
+}
+
+.mini-chart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px; /* Adjust width */
+    height: 30px; /* Adjust height */
+}
+
+
+/* Specific card layouts using grid span */
+.card-output, .card-pressure-main,
+.card-pressure-graph, .card-flow-graph,
+.card-reports-summary {
+    grid-column: span 2; /* These cards take 2 columns */
+}
+
+
+.card-pressure-graph .psi-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: lowercase;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.chart-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ensure SVG can take full height */
+    padding-bottom: 20px; /* Space for x-axis labels */
+}
+.large-chart {
+    width: 90%;
+    height: calc(100% - 20px); /* Adjust based on parent padding and label space */
+    max-height: 120px; /* Control max height of graph */
+}
+
+.drilling-history div {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+.drilling-history .drilling-value {
+    color: var(--text-secondary);
+    float: right;
+}
+
+.card-daily-reports .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mic-icon {
+    font-size: 2.5rem;
+    color: var(--text-secondary);
+}
+
+.card-productivity .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pixelated-placeholder {
+    width: 100%;
+    height: 60px; /* Adjust as needed */
+    background: 
+        linear-gradient(45deg, #4a5568 25%, transparent 25%), 
+        linear-gradient(-45deg, #4a5568 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #4a5568 75%),
+        linear-gradient(-45deg, transparent 75%, #4a5568 75%);
+    background-size:20px 20px;    
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.5;
+    border-radius: 4px;
+}
+
+
+.ops-list {
+    list-style: none;
+}
+.ops-list li {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ops-list li:last-child {
+    border-bottom: none;
+}
+.ops-list .arrow {
+    color: var(--text-secondary);
+}
+
+.card-reports-summary {
+    position: relative; /* For the arrow icon */
+}
+.card-reports-summary .card-header .icon {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+.progress-bar-container {
+    height: 8px;
+    background-color: #4A5568; /* Darker part of the bar */
+    border-radius: 4px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.progress-bar-container::before { /* The filled part of the bar */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%; /* Example fill */
+    background-color: var(--accent-blue);
+    border-radius: 4px;
+}
+.arrow-right-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transform: rotate(-45deg); /* To make it point up-right */
+}
+
+
+/* Make it somewhat responsive for smaller views if needed */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+    .card-output, .card-pressure-main,
+    .card-pressure-graph, .card-flow-graph,
+    .card-reports-summary {
+        grid-column: span 1; /* Reset span for 2-column layout */
+    }
+    .card-reports-summary { /* Make it full width if it's the last odd one */
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Single column for small screens */
+    }
+    .card-output, .card-pressure-main,
+    .card-pressure-graph, .card-flow-graph,
+    .card-reports-summary {
+        grid-column: span 1; /* All cards span 1 column */
+    }
+}
+
+
+/* style.css */
+
+/* ... (all your existing CSS from the previous answer) ... */
+
+/* Sidebar */
+.sidebar {
+    width: 260px; /* Default width */
+    background-color: var(--bg-card);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    /* Add transitions for smooth animation */
+    transition: width 0.3s ease-in-out, 
+                padding-left 0.3s ease-in-out, 
+                padding-right 0.3s ease-in-out, 
+                opacity 0.3s ease-in-out;
+    overflow-x: hidden; /* Important to hide content as it shrinks */
+    flex-shrink: 0; /* Prevents the sidebar from shrinking due to flexbox pressure */
+}
+
+/* New class to apply when sidebar is collapsed/hidden */
+.sidebar.sidebar-collapsed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    opacity: 0;
+    border-right: none; /* Optionally hide the border too */
+}
+
+/* Optional: To make content inside sidebar fade out quickly and prevent text wrapping issues */
+.sidebar.sidebar-collapsed > * {
+    opacity: 0;
+    transition: opacity 0.1s ease-out; /* Faster fade out for content */
+    white-space: nowrap; /* Prevent text wrapping during collapse */
+}
+
+
+/* Make sure main-content can grow */
+.main-content {
+    flex-grow: 1; /* This was already there, just ensure it is */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease-in-out; /* If you were to use margin adjustments */
+}
+
+/* ... (rest of your existing CSS) ... */
+/* Add to src/style.css or src/style/equipment_info.css */
+
+.equipment-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+/* If you want the schematic card to potentially span more or have a fixed aspect */
+.equipment-schematic-card .card-body {
+    padding: 0; /* Remove card padding if map needs to fill it */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schematic-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px; /* Ensure schematic card has some height */
+    background-color: #333942; /* Darker background for schematic area */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    border-radius: 0 0 8px 8px; /* Match card bottom radius */
+    padding: 15px;
+    box-sizing: border-box;
+}
+.schematic-placeholder img {
+    max-width: 100%;
+    max-height: calc(100% - 40px); /* Leave space for text below */
+    object-fit: contain; /* Use contain for schematics */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.view-schematic-link, .view-more-link {
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    text-decoration: none;
+    margin-top: auto; /* Pushes link to bottom if in flex container */
+    display: inline-block;
+}
+.view-schematic-link:hover, .view-more-link:hover {
+    text-decoration: underline;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.history-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border-color); /* Dashed for history items */
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+.history-list li:last-child {
+    border-bottom: none;
+}
+.history-list li strong {
+    color: var(--text-primary);
+    margin-right: 5px;
+}
+
+/* Shared .info-list styles (if not already general enough in style.css) */
+.info-list { /* This was also used in well_location.html */
+    list-style: none;
+    padding: 0;
+}
+.info-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.info-list li:last-child {
+    border-bottom: none;
+}
+.info-list li strong {
+    color: var(--text-primary);
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent strong tag from shrinking */
+}
+.info-list li span:last-child { /* The value part */
+    text-align: right;
+    color: var(--text-secondary);
+}
+/* drilling */
+/* Add to src/style.css or create src/style/drilling_history.css */
+
+.drilling-history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid, slightly larger min for tables */
+    gap: 20px;
+}
+
+/* Timeline specific styles */
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-list::before { /* The central timeline bar */
+    content: '';
+    position: absolute;
+    left: 40px; /* Adjust based on date width + spacing */
+    top: 5px;
+    bottom: 5px;
+    width: 3px;
+    background-color: var(--border-color);
+    border-radius: 2px;
+}
+
+.timeline-list li {
+    padding: 10px 0 10px 60px; /* Space for date and line */
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.timeline-list li::before { /* The dot on the timeline bar */
+    content: '';
+    position: absolute;
+    left: 35px; /* Align with the bar */
+    top: 15px; /* Adjust vertical alignment */
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-blue);
+    border: 2px solid var(--bg-card);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-date {
+    position: absolute;
+    left: -25px; /* Position date to the left of the dot */
+    top: 13px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    width: 70px; /* Give date some space */
+    text-align: right;
+    padding-right: 10px;
+}
+
+.timeline-event {
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+.drilling-timeline-card .view-more-link {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+}
+
+
+/* Casing Table Styles */
+.casing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+.casing-table th, .casing-table td {
+    border: 1px solid var(--border-color);
+    padding: 8px 10px;
+    text-align: left;
+}
+.casing-table th {
+    background-color: rgba(255,255,255,0.05); /* Slightly different header bg */
+    color: var(--text-primary);
+    font-weight: 500;
+}
+.casing-table td {
+    color: var(--text-secondary);
+}
+.casing-table tbody tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.1); /* Subtle striping for rows */
+}
+
+/* General .info-list styles (ensure these are generic enough if in common style.css) */
+/* Shared .info-list styles from previous examples - ensure they are in src/style.css */
+/* .info-list { ... } */
+/* .info-list li { ... } */
+/* .info-list li strong { ... } */
+/* .info-list li span:last-child { ... } */
+
+/* Card specific spans if needed, e.g., the timeline card might need more height */
+.drilling-timeline-card {
+    grid-column: span 2; /* Example: make timeline card wider if it has lots of content */
+}
+@media (max-width: 900px) { /* Adjust breakpoint as needed */
+    .drilling-timeline-card {
+        grid-column: span 1; /* Stack on smaller screens */
+    }
+}
+/* ------------- */

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensure flame-icon.svg is in your public folder, or update path -->
+    <link rel="icon" type="image/svg+xml" href="/flame-icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Info - Petroleum Palm</title>
+    <!-- Common styles -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Page-specific styles (optional, create if needed: src/style/equipment_info.css) -->
+    <!-- <link rel="stylesheet" href="../style/equipment_info.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">🔥</span>
+                <h1>Petroleum Palm</h1>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav">
+                <ul>
+                    <li>
+                        <a href="../../index.html" class="sidebar-link">
+                            <span class="icon">W</span> Well Name <span class="star">★</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="well_location.html" class="sidebar-link">
+                            <span class="icon">📍</span> Well Location
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="equipment_info.html" class="sidebar-link">
+                            <span class="icon">📄</span> Equipment Info
+                        </a>
+                    </li>
+                    <li>
+                        <a href="drilling_history.html" class="sidebar-link">
+                            <span class="icon">📊</span> Drilling History
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-group-title">GENERAL INFO</div>
+                <ul>
+                     <li><a href="#" class="sidebar-link"><span class="icon">⚪</span> PoullNem Well</a></li>
+                </ul>
+                <div class="nav-group-title">TECHNICAL MONITORING</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon">🕒</span> Previous Operations</a></li>
+                    <li><a href="#" class="sidebar-link"><span class="icon">📰</span> Daily Reports</a></li>
+                </ul>
+                <div class="nav-group-title">RECORDS</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon-text">+</span> Add New Well</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="icon-button menu-button" id="menuButton">☰</button>
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="search" placeholder="Search">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <span class="language-selector">EN</span>
+                    <button class="icon-button">💾</button>
+                    <button class="icon-button">🔔</button>
+                    <button class="icon-button">⋮</button>
+                </div>
+            </header>
+
+            <section class="page-content">
+                <div class="page-header">
+                    <h2>Well Equipment Information</h2>
+                </div>
+
+                <div class="equipment-details-grid">
+                    <div class="card equipment-summary-card">
+                        <div class="card-header">Wellhead & Christmas Tree</div>
+                        <div class="card-body">
+                            <ul class="info-list">
+                                <li><strong>Manufacturer:</strong> Cameron</li>
+                                <li><strong>Model:</strong> SG-5</li>
+                                <li><strong>Pressure Rating:</strong> 5000 psi</li>
+                                <li><strong>Valves:</strong> Master, Wing, Swab</li>
+                                <li><strong>Choke Type:</strong> Adjustable</li>
+                                <li><strong>Installation Date:</strong> 2022-08-15</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card equipment-detail-card">
+                        <div class="card-header">Downhole Completion</div>
+                        <div class="card-body">
+                            <ul class="info-list">
+                                <li><strong>Tubing Size:</strong> 2-7/8" OD</li>
+                                <li><strong>Tubing Grade:</strong> L-80</li>
+                                <li><strong>Packer Type:</strong> Retrievable Hydraulic Packer</li>
+                                <li><strong>Packer Depth:</strong> 9,850 ft</li>
+                                <li><strong>Subsurface Safety Valve (SSSV):</strong> TRSSSV, Wireline Retrievable</li>
+                                <li><strong>SSSV Depth:</strong> 350 ft</li>
+                                <li><strong>Perforations:</strong> 10,050 - 10,100 ft (4 SPF)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card equipment-detail-card">
+                        <div class="card-header">Artificial Lift (if applicable)</div>
+                        <div class="card-body">
+                             <ul class="info-list">
+                                <li><strong>Lift Type:</strong> Gas Lift</li>
+                                <li><strong>Mandrel Type:</strong> Side Pocket</li>
+                                <li><strong>No. of Mandrels:</strong> 5</li>
+                                <li><strong>Valve Depths:</strong> 3500ft, 5000ft, 6500ft, 7800ft, 9000ft</li>
+                            </ul>
+                            <!-- Or if not applicable: <p>N/A - Well is free-flowing.</p> -->
+                        </div>
+                    </div>
+                    
+                    <div class="card equipment-schematic-card">
+                        <div class="card-header">Wellbore Schematic</div>
+                        <div class="card-body">
+                            <div class="schematic-placeholder">
+                                <img src="https://via.placeholder.com/400x500.png?text=Wellbore+Schematic" alt="Wellbore Schematic Placeholder">
+                                <a href="#" class="view-schematic-link">View Full Schematic (PDF)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card equipment-history-card">
+                        <div class="card-header">Equipment Maintenance History</div>
+                        <div class="card-body">
+                            <ul class="history-list">
+                                <li><strong>2023-11-20:</strong> SSSV test - Passed.</li>
+                                <li><strong>2023-05-10:</strong> Wellhead integrity check - OK.</li>
+                                <li><strong>2022-08-15:</strong> Initial completion installed.</li>
+                            </ul>
+                            <a href="#" class="view-more-link">View Full Maintenance Log...</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="../main.js"></script>
+</body>
+</html>

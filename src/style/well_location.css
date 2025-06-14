@@ -1,0 +1,113 @@
+/* style.css */
+
+/* ... (all your existing CSS, including sidebar, header, card styles) ... */
+
+/* Styles for specific page content (like well_location.html) */
+.page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between header and grid, or between different content blocks */
+}
+
+.page-header {
+    margin-bottom: 10px; /* Space below the page title */
+}
+
+.page-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-header);
+    font-weight: 600;
+}
+
+.location-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.location-map-card .card-body {
+    padding: 0; /* Remove card padding if map needs to fill it */
+    display: flex; /* For centering placeholder */
+    align-items: center;
+    justify-content: center;
+    min-height: 300px; /* Ensure map card has some height */
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #333942; /* Darker background for map area */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    border-radius: 0 0 8px 8px; /* Match card bottom radius if card-body padding was 0 */
+}
+.map-placeholder img {
+    max-width: 100%;
+    max-height: calc(100% - 30px); /* Leave space for text below */
+    object-fit: cover;
+    border-radius: 4px; /* Slight rounding for the image itself */
+}
+.map-placeholder span {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+
+.location-info-card .info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.location-info-card .info-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.location-info-card .info-list li:last-child {
+    border-bottom: none;
+}
+.location-info-card .info-list li strong {
+    color: var(--text-primary);
+    margin-right: 10px;
+}
+
+.location-notes-card .card-body p {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.location-notes-card .card-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Sidebar link styling */
+.sidebar-nav li a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from li */
+    display: flex;
+    align-items: center;
+    width: 100%; /* Make link clickable over the whole li area */
+}
+.sidebar-nav li a .icon {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.sidebar-nav li a .star {
+    margin-left: auto;
+    color: var(--text-secondary); /* Default star color */
+}
+.sidebar-nav li.active a .star {
+    color: var(--accent-yellow); /* Active star color */
+}
+
+/* Ensure the JS for sidebar toggle still works */
+/* (No changes needed to main.js for this new page, as it uses the same classes) */

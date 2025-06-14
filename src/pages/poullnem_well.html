@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensure flame-icon.svg is in your public folder, or update path -->
+    <link rel="icon" type="image/svg+xml" href="/flame-icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoullNem Well Dashboard - Petroleum Palm</title>
+    <!-- Common styles -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Page-specific styles (optional, create if needed: src/style/poullnem_well.css) -->
+    <!-- <link rel="stylesheet" href="../style/poullnem_well.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">🔥</span>
+                <h1>Petroleum Palm</h1>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav">
+                <ul>
+                    <li>
+                        <a href="../../index.html" class="sidebar-link"> <!-- Main dashboard -->
+                            <span class="icon">W</span> Well Name <span class="star">★</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="well_location.html" class="sidebar-link">
+                            <span class="icon">📍</span> Well Location
+                        </a>
+                    </li>
+                    <li>
+                        <a href="equipment_info.html" class="sidebar-link">
+                            <span class="icon">📄</span> Equipment Info
+                        </a>
+                    </li>
+                    <li>
+                        <a href="drilling_history.html" class="sidebar-link">
+                            <span class="icon">📊</span> Drilling History
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-group-title">GENERAL INFO</div>
+                <ul>
+                     <li class="active"> {/* PoullNem Well is now active */}
+                        <a href="poullnem_well.html" class="sidebar-link">
+                            <span class="icon">⚪</span> PoullNem Well
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-group-title">TECHNICAL MONITORING</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon">🕒</span> Previous Operations</a></li>
+                    <li><a href="#" class="sidebar-link"><span class="icon">📰</span> Daily Reports</a></li>
+                </ul>
+                <div class="nav-group-title">RECORDS</div>
+                <ul>
+                    <li><a href="#" class="sidebar-link"><span class="icon-text">+</span> Add New Well</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="icon-button menu-button" id="menuButton">☰</button>
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="search" placeholder="Search Well Data">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <span class="language-selector">EN</span>
+                    <button class="icon-button">💾</button>
+                    <button class="icon-button">🔔</button>
+                    <button class="icon-button">⋮</button>
+                </div>
+            </header>
+
+            <section class="page-content">
+                 <div class="page-header">
+                    <h2>PoullNem Well - Overview Dashboard</h2>
+                </div>
+                {/* We can reuse the same dashboard-grid structure from index.html here */}
+                {/* Or create a new grid specific to this well's detailed view */}
+                <div class="dashboard-grid">
+                    <div class="card card-output">
+                        <div class="card-header">DAILY OUTPUT</div>
+                        <div class="card-body">
+                            {/* Data for PoullNem Well */}
+                            <span class="value">485</span> <span class="unit">barrels</span>
+                            <svg class="mini-chart" viewBox="0 0 100 30" preserveAspectRatio="none">
+                                <path d="M0 15 Q 10 5, 20 15 T 40 15 Q 50 25, 60 15 T 80 15 Q 90 10, 100 15" stroke="#E94E77" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="card card-pressure-main">
+                        <div class="card-header">CURRENT PRESSURE</div>
+                        <div class="card-body">
+                            {/* Data for PoullNem Well */}
+                            <span class="value">3,450</span> <span class="unit">psi</span>
+                             <svg class="mini-chart" viewBox="0 0 100 30" preserveAspectRatio="none">
+                                <path d="M0 20 Q 10 25, 20 15 T 40 20 Q 50 10, 60 20 T 80 15 Q 90 25, 100 20" stroke="#4A90E2" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="card card-pressure-graph">
+                        <div class="card-header">Pressure Trend <span class="psi-label">psi</span></div>
+                        <div class="card-body chart-body">
+                            <svg class="large-chart" viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet">
+                                <path d="M0,80 Q30,60 60,70 T120,50 Q150,30 180,55 T240,75 Q270,90 300,80" stroke="#E94E77" stroke-width="2" fill="none"/>
+                                <g class="x-axis-labels" font-size="10" fill="#788294">
+                                    <text x="10" y="115">Fri</text> <text x="60" y="115">Feb</text> <text x="110" y="115">Mar</text> <text x="160" y="115">Apr</text> <text x="210" y="115">May</text> <text x="260" y="115">Thu</text>
+                                </g>
+                                 <text x="5" y="15" font-size="10" fill="#788294">psi</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="card card-flow-graph">
+                        <div class="card-header">Flow Rate Trend</div>
+                        <div class="card-body chart-body">
+                            <svg class="large-chart" viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet">
+                               <path d="M0,60 Q50,40 100,60 T200,80 Q250,70 300,50" stroke="#4A90E2" stroke-width="2" fill="none"/>
+                               <g class="x-axis-labels" font-size="10" fill="#788294">
+                                    <text x="25" y="115">Jan</text> <text x="125" y="115">Feb</text> <text x="225" y="115">Mar</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    {/* Other cards from index.html can be copied here if relevant, or new ones added */}
+                    <div class="card">
+                        <div class="card-header">WELL STATUS</div>
+                        <div class="card-body">Producing - Gas Lift</div>
+                    </div>
+                     <div class="card">
+                        <div class="card-header">LAST WORKOVER</div>
+                        <div class="card-body">2023-09-12 (Stimulation)</div>
+                    </div>
+                     <div class="card">
+                        <div class="card-header">NEXT SCHEDULED MAINTENANCE</div>
+                        <div class="card-body">2024-03-01 (SSSV Test)</div>
+                    </div>
+                     <div class="card">
+                        <div class="card-header">ALERTS</div>
+                        <div class="card-body">No critical alerts.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="../main.js"></script>
+</body>
+</html>
